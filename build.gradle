@@ -4,13 +4,11 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.1.1'
-//        classpath 'com.layer:gradle-git-repo-plugin:2.0.2'
         classpath 'com.ryanharter.gradle-git-repo:gradle-plugin:1.0.1'
     }
 }
 
 apply plugin: 'com.android.library'
-//apply plugin: 'maven-publish'
 apply plugin: 'maven'
 apply plugin: 'git-repo'
 
