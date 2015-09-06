@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        //classpath 'com.android.tools.build:gradle:1.1.1'
+        classpath 'com.layer:gradle-git-repo-plugin:2.0.2'
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'git-repo'
+
+repositories {
+
+}
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '23.0.0'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    sourceSets {
+        main {
+            //manifest.srcFile "$projectDir/src/main/AndroidManifest.xml"
+//            manifest.srcFile 'src/main/AndroidManifest.xml'
+//            java.srcDirs = ['src/main/java']
+//            resources.srcDirs = ['src/main/res']
+//            res.srcDirs = ['src/main/res']
+//            assets.srcDirs = ['src/main/assets']
+        }
+    }
+
+    defaultConfig {
+        versionCode 1
+        versionName '0.0.1'
+        minSdkVersion 19
+        targetSdkVersion 19
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testHandleProfiling true
+        testFunctionalTest true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+
+}

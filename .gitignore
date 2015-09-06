@@ -1,0 +1,14 @@
+.*
+!.gitignore
+
+*~
+*.iml
+
+/local.properties
+/build/
+/scratch/
+/ext/
+/src/*/gen
+/target/
+
+gr
