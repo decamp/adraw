@@ -8,7 +8,5 @@
 /build/
 /scratch/
 /ext/
-/src/*/gen
+/src/*/gen/
 /target/
-
-gr
