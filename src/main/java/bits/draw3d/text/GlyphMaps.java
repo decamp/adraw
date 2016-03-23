@@ -7,17 +7,14 @@
 package bits.draw3d.text;
 
 class GlyphMaps {
-
-    static GlyphMap newGlyphMap() {
+    static GlyphMap createGlyphMap() {
         return new FlatGlyphMap( CharSet.DEFAULT );
     }
-    
-    
-    static GlyphMap newGlyphMap( CharSet chars ) {
+
+    static GlyphMap createGlyphMap( CharSet chars ) {
         if( chars == null ) {
             chars = CharSet.DEFAULT;
         }
         return new FlatGlyphMap( chars );
     }
-    
 }

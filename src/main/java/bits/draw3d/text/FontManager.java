@@ -32,5 +32,4 @@ public class FontManager {
         return tex;
     }
 
-
 }

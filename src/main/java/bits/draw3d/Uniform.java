@@ -36,16 +36,17 @@ public class Uniform extends ProgramResource {
     public final int mBlockOffset;
 
 
-    public Uniform( int memberType,
-                    int arrayLen,
-                    int index,
-                    int location,
-                    String name,
-                    int arrayStride,
-                    int matrixStride,
-                    int blockIndex,
-                    int blockOffset )
-    {
+    public Uniform(
+            int memberType,
+            int arrayLen,
+            int index,
+            int location,
+            String name,
+            int arrayStride,
+            int matrixStride,
+            int blockIndex,
+            int blockOffset
+    ) {
         super( Fake.GL_UNIFORM, memberType, arrayLen, index, location, name );
         mArrayStride  = arrayStride;
         mMatrixStride = matrixStride;

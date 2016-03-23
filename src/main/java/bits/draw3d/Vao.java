@@ -34,7 +34,7 @@ import java.util.List;
 public class Vao implements DrawUnit {
 
     private final int[]           mId      = { 0 };
-    private final List<VaoMember> mAttribs = new ArrayList<VaoMember>( 5 );
+    private final List<VaoMember> mAttribs = new ArrayList<>( 5 );
 
     private Bo mVbo = null;
     private Bo mIbo = null;

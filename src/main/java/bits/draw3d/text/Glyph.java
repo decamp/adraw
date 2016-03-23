@@ -24,17 +24,18 @@ class Glyph {
     final float mT1;
     
     
-    Glyph( char c,
-           float advance,
-           int x0,
-           int y0,
-           float s0,
-           float t0,
-           int x1,
-           int y1,
-           float s1,
-           float t1 )
-    {
+    Glyph(
+            char c,
+            float advance,
+            int x0,
+            int y0,
+            float s0,
+            float t0,
+            int x1,
+            int y1,
+            float s1,
+            float t1
+    ) {
         mChar = c;
         mAdvance = advance;
         mX0 = x0;
@@ -46,6 +47,5 @@ class Glyph {
         mS1 = s1;
         mT1 = t1;
     }
-    
 
 }

@@ -74,15 +74,17 @@ public class Ubo implements DrawUnit {
 
     public UboMember addUniform( int arrayLen, int memberType, String optName ) {
         MemberType type = MemberType.fromGl( memberType );
-        Uniform uniform = new Uniform( memberType,
-                                      arrayLen,
-                                      mMembers.size(),
-                                      -1,
-                                      optName != null ? optName : "",
-                                      mLayout.arrayStride( type, 1 ),
-                                      mLayout.matrixStride( type ),
-                                      -1,
-                                      mMembersSize );
+        Uniform uniform = new Uniform(
+                memberType,
+                arrayLen,
+                mMembers.size(),
+                -1,
+                optName != null ? optName : "",
+                mLayout.arrayStride( type, 1 ),
+                mLayout.matrixStride( type ),
+                -1,
+                mMembersSize
+        );
 
         Member member   = new Member( uniform );
         member.mBufOff  = uniform.mBlockOffset;

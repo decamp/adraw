@@ -53,7 +53,7 @@ public class FontTexture implements DrawUnit {
     public FontTexture( Typeface font, CharSet chars ) {
         mFont = font;
         mMetrics = FontUtil.metrics( font );
-        mGlyphs = GlyphMaps.newGlyphMap( chars );
+        mGlyphs = GlyphMaps.createGlyphMap( chars );
 
         // TODO: Reimplement
 //        int dim = 256;
@@ -166,19 +166,19 @@ public class FontTexture implements DrawUnit {
     }
 
     
-//    public float getAscent() {
-//        return mMetrics.getAscent();
-//    }
-//
-//
-//    public float getDescent() {
-//        return mMetrics.getDescent();
-//    }
-//
-//
-//    public float getLeading() {
-//        return mMetrics.getLeading();
-//    }
+    public float getAscent() {
+        return mMetrics.ascent;
+    }
+
+
+    public float getDescent() {
+        return mMetrics.descent;
+    }
+
+
+    public float getLeading() {
+        return mMetrics.leading;
+    }
 
     
     public float getCharWidth( char c ) {

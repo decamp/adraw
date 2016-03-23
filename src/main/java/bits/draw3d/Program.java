@@ -18,7 +18,8 @@ import java.util.List;
 public class Program implements DrawUnit {
 
     protected final List<Shader> mShaders = new ArrayList<>( 3 );
-    protected       int          mId      = 0;
+
+    protected int mId = 0;
 
 
     public Program() {}

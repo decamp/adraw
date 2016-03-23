@@ -9,7 +9,7 @@ package bits.draw3d.shaders;
 import bits.draw3d.*;
 import bits.draw3d.model.DrawTri;
 import bits.draw3d.model.DrawVert;
-import bits.draw3d.util.TypeConverter;
+import bits.math3d.ValueTypes;
 import bits.math3d.Vec;
 import bits.math3d.Vec4;
 
@@ -24,32 +24,38 @@ import static android.opengl.GLES30.*;
 public class BasicShaders {
 
     @SuppressWarnings( "unchecked" )
-    public static BoProgram<DrawVert,DrawTri> createTriProgram( ShaderManager shaderMan,
-                                                                boolean strip,
-                                                                boolean adjacency,
-                                                                int texComponents,
-                                                                boolean norms,
-                                                                boolean colors )
-    {
+    public static BoProgram<DrawVert,DrawTri> createTriProgram(
+            ShaderManager shaderMan,
+            boolean strip,
+            boolean adjacency,
+            int texComponents,
+            boolean norms,
+            boolean colors
+    ) {
         int mode = strip ? ( adjacency ? Fake.GL_TRIANGLE_STRIP_ADJACENCY : GL_TRIANGLE_STRIP ) :
                            ( adjacency ? Fake.GL_TRIANGLES_ADJACENCY      : GL_TRIANGLES      );
-        BoProgram<DrawVert,DrawTri> ret = (BoProgram)createVertProgram( shaderMan,
-                                                                        mode,
-                                                                        texComponents,
-                                                                        norms,
-                                                                        colors );
+
+        BoProgram<DrawVert,DrawTri> ret = (BoProgram)createVertProgram(
+                shaderMan,
+                mode,
+                texComponents,
+                norms,
+                colors
+        );
+
         ret.mElemWriter = DRAW_TRI_WRITER;
         return ret;
     }
 
 
 
-    public static BoProgram<DrawVert,Void> createVertProgram( ShaderManager shaderMan,
-                                                              int geomMode,
-                                                              int texComponents,
-                                                              boolean norms,
-                                                              boolean colors )
-    {
+    public static BoProgram<DrawVert,Void> createVertProgram(
+            ShaderManager shaderMan,
+            int geomMode,
+            int texComponents,
+            boolean norms,
+            boolean colors
+    ) {
         BasicShaderConfig conf = new BasicShaderConfig();
         conf.geomMode( geomMode );
         conf.texComponentNum( texComponents );
@@ -62,7 +68,7 @@ public class BasicShaders {
 
 
     public static BoProgram<DrawVert,Void> createProgram( BasicShaderConfig config, ShaderManager shaderMan ) {
-        BoProgram<DrawVert,Void> ret = new BoProgram<DrawVert,Void>();
+        BoProgram<DrawVert,Void> ret = new BoProgram<>();
         initProgram( config, shaderMan, ret );
         ret.mVertWriter = createVertWriter( config );
         return ret;
@@ -191,7 +197,7 @@ public class BasicShaders {
         public void write( DrawVert vert, ByteBuffer bo ) {
             Vec.put( vert.mPos, bo );
             Vec4 c = vert.mColor;
-            bo.putInt( TypeConverter.toUbytes( c ) );
+            bo.putInt( ValueTypes.toUbytes( c ) );
         }
     }
 
@@ -219,7 +225,7 @@ public class BasicShaders {
         @Override
         public void write( DrawVert vert, ByteBuffer bo ) {
             Vec.put( vert.mPos, bo );
-            bo.putInt( TypeConverter.toUbytes( vert.mColor ) );
+            bo.putInt( ValueTypes.toUbytes( vert.mColor ) );
             for( int i = 0; i < mTexDim; i++ ) {
                 bo.putFloat( vert.mTex[i] );
             }
@@ -306,7 +312,7 @@ public class BasicShaders {
         @Override
         public void write( DrawVert vert, ByteBuffer vbo ) {
             Vec.put( vert.mPos, vbo );
-            vbo.putInt( TypeConverter.toUbytes( vert.mColor ) );
+            vbo.putInt( ValueTypes.toUbytes( vert.mColor ) );
             Vec.put( vert.mNorm, vbo );
             for( int i = 0; i < mTexDim; i++ ) {
                 vbo.putFloat( vert.mTex[i] );

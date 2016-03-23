@@ -49,29 +49,20 @@ public class ProgramResource {
     public final String mName;
 
 
-    public ProgramResource( int inter,
-                            int memberType,
-                            int arrayLen,
-                            int index,
-                            int location,
-                            String optName )
-    {
+    public ProgramResource(
+            int inter,
+            int memberType,
+            int arrayLen,
+            int index,
+            int location,
+            String optName
+    ) {
         mInterface = inter;
         mMemberType = memberType;
         mArrayLength = arrayLen;
         mIndex = index;
         mLocation = location;
         mName = optName != null ? optName : "";
-    }
-
-
-    public ProgramResource( ProgramResource copy ) {
-        mInterface   = copy.mInterface;
-        mMemberType  = copy.mMemberType;
-        mArrayLength = copy.mArrayLength;
-        mIndex       = copy.mIndex;
-        mLocation    = copy.mLocation;
-        mName        = copy.mName;
     }
 
 }

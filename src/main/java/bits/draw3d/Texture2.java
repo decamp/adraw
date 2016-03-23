@@ -42,14 +42,15 @@ public final class Texture2 extends AbstractTexture {
     }
 
 
-    public synchronized void buffer( ByteBuffer buf,
-                                     int intFormat,
-                                     int format,
-                                     int dataType,
-                                     int w,
-                                     int h,
-                                     int stride )
-    {
+    public synchronized void buffer(
+            ByteBuffer buf,
+            int intFormat,
+            int format,
+            int dataType,
+            int w,
+            int h,
+            int stride
+    ) {
         if( buf == null ) {
             if( mBuf == null ) {
                 return;

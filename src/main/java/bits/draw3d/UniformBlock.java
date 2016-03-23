@@ -27,12 +27,13 @@ public class UniformBlock extends ProgramResource {
     public final List<Uniform> mUniforms;
 
 
-    public UniformBlock( int index,
-                         int bindingLoc,
-                         String optName,
-                         int dataSize,
-                         List<Uniform> optUniforms )
-    {
+    public UniformBlock(
+            int index,
+            int bindingLoc,
+            String optName,
+            int dataSize,
+            List<Uniform> optUniforms
+    ) {
         super( Fake.GL_UNIFORM_BLOCK, -1, 1, index, bindingLoc, optName );
         mDataSize = dataSize;
         mUniforms = optUniforms != null ? optUniforms : new ArrayList<Uniform>();

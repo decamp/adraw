@@ -4,9 +4,7 @@
  * http://opensource.org/licenses/BSD-2-Clause
  */
 
-package bits.draw3d.util;
-
-import bits.math3d.Vec4;
+package bits.math3d;
 
 import java.nio.ByteOrder;
 
@@ -14,7 +12,7 @@ import java.nio.ByteOrder;
 /**
  * @author Philip DeCamp
  */
-public class TypeConverter {
+public class ValueTypes {
 
     private static final boolean SWAP_ORDER = ByteOrder.nativeOrder() != ByteOrder.BIG_ENDIAN;
 

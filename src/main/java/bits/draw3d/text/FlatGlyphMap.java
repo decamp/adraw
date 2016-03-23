@@ -23,8 +23,7 @@ class FlatGlyphMap implements GlyphMap {
         mUnknown = chars.charAt( chars.unknown() ) - mMin;
         mGlyphs = new Glyph[ mMax - mMin + 1 ];
     }
-    
-    
+
     
     public Glyph get( char c ) {
         try {
@@ -33,18 +32,20 @@ class FlatGlyphMap implements GlyphMap {
             return mGlyphs[ mUnknown ];
         }
     }
-    
-    public Glyph put( char c,
-                      float advance,
-                      int x0,
-                      int y0,
-                      float s0,
-                      float t0,
-                      int x1,
-                      int y1,
-                      float s1,
-                      float t1 )
-    {
+
+
+    public Glyph put(
+            char c,
+            float advance,
+            int x0,
+            int y0,
+            float s0,
+            float t0,
+            int x1,
+            int y1,
+            float s1,
+            float t1
+    ) {
         Glyph g = new Glyph( c, advance, x0, y0, s0, t0, x1, y1, s1, t1 );
         mGlyphs[ c - mMin ] = g;
         return g;
@@ -69,7 +70,8 @@ class FlatGlyphMap implements GlyphMap {
     public CharSequence chars() {
         return mChars;
     }
-    
+
+
     public char getChar( int index ) {
         return mChars.charAt( index );
     }

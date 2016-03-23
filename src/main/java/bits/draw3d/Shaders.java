@@ -21,15 +21,6 @@ import static android.opengl.GLES30.*;
  */
 public class Shaders {
 
-
-    /**
-     * Not necessary because Android's glGetShaderInfoLog auto converts to String.
-     */
-    @Deprecated
-    public static String readShaderInfoLog( int shader ) {
-        return GLES30.glGetShaderInfoLog( shader );
-   }
-
     /**
      * Convenience method that creates a shader, attaches source, compiles, and checks for errors.
      *
@@ -184,6 +175,15 @@ public class Shaders {
         }
 
         return ret;
+    }
+
+
+    /**
+     * Not necessary because Android's glGetShaderInfoLog auto converts to String.
+     */
+    @Deprecated
+    public static String readShaderInfoLog( int shader ) {
+        return GLES30.glGetShaderInfoLog( shader );
     }
 
 }

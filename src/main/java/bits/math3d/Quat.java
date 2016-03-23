@@ -19,7 +19,9 @@ public final class Quat {
 
     /**
      * Multiply two quaternions.
-     * @param out Length-4 array to hold output on return. May be the same array as one of the inputs.
+     * @param a   Input quaternion
+     * @param b   Input quaternion
+     * @param out Receives product quaternion. May be same object as either input.
      */
     public static void mult( Vec4 a, Vec4 b, Vec4 out ) {
         // These local copies had no effect in performance tests, but whatevs. 
@@ -37,7 +39,13 @@ public final class Quat {
         out.w = a0 * b3 + a1 * b2 - a2 * b1 + a3 * b0;
     }
 
-
+    /**
+     * Multiply quaternion and vector.
+     *
+     * @param quat Input quaternion.
+     * @param vec  Input vector.
+     * @param out  Output vector. May be same as either input.
+     */
     public static void multVec( Vec4 quat, Vec3 vec, Vec3 out ) {
         final float q0 = quat.x;
         final float q1 = quat.y;
@@ -68,12 +76,12 @@ public final class Quat {
     }
 
     /**
-     * Converts axis-getRotation to quaternion representation.
-     * @param rads Radians of getRotation
-     * @param x    X-coord of getRotation axis
-     * @param y    Y-coord of getRotation axis
-     * @param z    Z-coord of getRotation axis
-     * @param out  Length-4 array that holds getRotation on return.
+     * Converts axis-rotation to quaternion representation.
+     * @param rads Radians of rotation
+     * @param x    X-coord of rotation axis
+     * @param y    Y-coord of rotation axis
+     * @param z    Z-coord of rotation axis
+     * @param out  Length-4 array that holds rotation on return.
      */
     public static void rotation( float rads, float x, float y, float z, Vec4 out ) {
         float cos = (float)Math.cos( rads * 0.5 );
@@ -86,11 +94,11 @@ public final class Quat {
     }
 
     /**
-     * Converts a getRotation matrix to an equivalent quaternion.
-     * Non-getRotation matrices will produce undefined results.
+     * Converts a rotation matrix to an equivalent quaternion.
+     * Non-rotation matrices will produce undefined results.
      *
-     * @param mat Length-16 array holding getRotation matrix.
-     * @param out Length-4 array that holds equivalent quaternion on return.
+     * @param mat Input matrix.
+     * @param out Receives output quaternion
      */
     public static void matToQuat( Mat3 mat, Vec4 out ) {
         final float r00 = mat.m00;
@@ -133,10 +141,10 @@ public final class Quat {
     }
 
     /**
-     * Converts quaternion to dim4 getRotation matrix.
+     * Converts quaternion to dim4 rotation matrix.
     *
-     * @param quat Length-4 array holding quaternion.
-     * @param out  Length-16 array that holds equivalent matrix on return.
+     * @param quat Input quaternion.
+     * @param out  Receives output.
      */
     public static void quatToMat( Vec4 quat, Mat3 out ) {
         final float q0 = quat.x;
@@ -162,7 +170,7 @@ public final class Quat {
      * @param qa  Quaternior
      * @param qb  Quaternion
      * @param t   Blend factor
-     * @param out Length-4 array that holds quaternion output on return.
+     * @param out Length-4 vec to receive output.
      */
     public static void slerp( Vec4 qa, Vec4 qb, float t, Vec4 out ) {
         // Calculate angle between them.
@@ -221,9 +229,9 @@ public final class Quat {
      * One implication of this function is that it can be used
      * to uniformly sample a 2-sphere.
      *
-     * @param rand0 Arbitrary mVal in [0,1]
-     * @param rand1 Arbitrary mVal in [0,1]
-     * @param rand2 Arbitrary mVal in [0,1]
+     * @param rand0 Arbitrary val in [0,1]
+     * @param rand1 Arbitrary val in [0,1]
+     * @param rand2 Arbitrary val in [0,1]
      * @param out   Holds quaternion on return.
      */
     public static void randToQuat( float rand0, float rand1, float rand2, Vec4 out ) {
@@ -323,12 +331,12 @@ public final class Quat {
     }
 
     /**
-     * Converts axis-getRotation to quaternion representation.
-     * @param rads Radians of getRotation
-     * @param x    X-coord of getRotation axis
-     * @param y    Y-coord of getRotation axis
-     * @param z    Z-coord of getRotation axis
-     * @param out  Length-4 array that holds getRotation on return.
+     * Converts axis-rotation to quaternion representation.
+     * @param rads Radians of rotation
+     * @param x    X-coord of rotation axis
+     * @param y    Y-coord of rotation axis
+     * @param z    Z-coord of rotation axis
+     * @param out  Length-4 array that holds rotation on return.
      */
     public static void rotation( double rads, double x, double y, double z, double[] out ) {
         double cos = Math.cos( rads * 0.5 );
@@ -341,10 +349,10 @@ public final class Quat {
     }
 
     /**
-     * Converts a getRotation matrix to an equivalent quaternion.
-     * Non-getRotation matrices will produce undefined results.
+     * Converts a rotation matrix to an equivalent quaternion.
+     * Non-rotation matrices will produce undefined results.
      *
-     * @param mat Length-16 array holding getRotation matrix.
+     * @param mat Length-16 array holding rotation matrix.
      * @param out Length-4 array that holds equivalent quaternion on return.
      */
     public static void mat4ToQuat( double[] mat, double[] out ) {
@@ -392,7 +400,7 @@ public final class Quat {
     }
 
     /**
-     * Converts quaternion to dim4 getRotation matrix.
+     * Converts quaternion to dim4 rotation matrix.
      *
      * @param quat Length-4 array holding quaternion.
      * @param out  Length-16 array that holds equivalent matrix on return.
@@ -488,9 +496,9 @@ public final class Quat {
      * One implication of this function is that it can be used
      * to uniformly sample a 2-sphere.
      *
-     * @param rand0 Arbitrary mVal in [0,1]
-     * @param rand1 Arbitrary mVal in [0,1]
-     * @param rand2 Arbitrary mVal in [0,1]
+     * @param rand0 Arbitrary val in [0,1]
+     * @param rand1 Arbitrary val in [0,1]
+     * @param rand2 Arbitrary val in [0,1]
      * @param out   Holds quaternion on return.
      */
     public static void randToQuat( double rand0, double rand1, double rand2, double[] out ) {
