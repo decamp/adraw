@@ -10,16 +10,16 @@ buildscript {
 
 
 configure( getAllprojects() ) { project ->
-    version = '0.0.0'
-    group = 'com.github.decamp'
-    buildDir = "$projectDir/build"
-
     repositories {
         jcenter()
     }
 
     apply plugin: 'com.android.library'
     apply plugin: 'com.github.dcendents.android-maven'
+
+    version = '0.0.1'
+    group = 'com.github.decamp'
+    buildDir = "$projectDir/build"
 
     android {
         compileSdkVersion 19
