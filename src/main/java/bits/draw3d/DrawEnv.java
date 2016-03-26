@@ -49,7 +49,7 @@ public class DrawEnv {
     public final DrawSetting.StencilOp     mStencilOp     = new DrawSetting.StencilOp( this );
     public final DrawSetting.Viewport      mViewport      = new DrawSetting.Viewport( this );
 
-    public final ShaderManager mShaderMan = new ShaderManager();
+    public final ShaderManager mShaderMan;
     public final FontManager   mFontMan   = new FontManager();
 
     public final Vec2        mWorkVec2   = new Vec2();
@@ -64,7 +64,14 @@ public class DrawEnv {
     private final DrawStream mStream = new DrawStream();
 
 
-    public DrawEnv() {}
+    public DrawEnv() {
+        this( null );
+    }
+
+
+    public DrawEnv( ShaderManager optShaderMan ) {
+        mShaderMan = optShaderMan != null ? optShaderMan : new ShaderManager( null, "300 es" );
+    }
 
 
     public void checkErr() {

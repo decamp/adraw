@@ -48,7 +48,6 @@ public class BasicShaders {
     }
 
 
-
     public static BoProgram<DrawVert,Void> createVertProgram(
             ShaderManager shaderMan,
             int geomMode,
@@ -103,15 +102,13 @@ public class BasicShaders {
 
 
     private static void initProgram( BasicShaderConfig config, ShaderManager shaderMan, BoProgram<?,?> out ) {
-        //TODO: Reimplement
-//        AutoloadProgram prog = new AutoloadProgram();
-//        prog.addShader( shaderMan.loadResource( GL_VERTEX_SHADER, config.vertShader() ) );
-//        if( config.geomShader() != null ) {
-//            prog.addShader( shaderMan.loadResource( Fake.GL_GEOMETRY_SHADER, config.geomShader() ) );
-//        }
-//        prog.addShader( shaderMan.loadResource( GL_FRAGMENT_SHADER, config.fragShader() ) );
-//
-//        out.mProgram = prog;
+        AutoloadProgram prog = new AutoloadProgram();
+        prog.addShader( shaderMan.loadResource( GL_VERTEX_SHADER, config.vertShader() ) );
+        if( config.geomShader() != null ) {
+            prog.addShader( shaderMan.loadResource( Fake.GL_GEOMETRY_SHADER, config.geomShader() ) );
+        }
+        prog.addShader( shaderMan.loadResource( GL_FRAGMENT_SHADER, config.fragShader() ) );
+        out.mProgram = prog;
     }
 
 

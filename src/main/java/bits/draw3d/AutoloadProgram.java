@@ -83,7 +83,7 @@ public class AutoloadProgram extends Program {
 
     public void addBindTask( DrawTask task ) {
         if( mOnBind == null ) {
-            mOnBind = new ArrayList<DrawTask>( 6 );
+            mOnBind = new ArrayList<>( 6 );
         }
         mOnBind.add( task );
     }

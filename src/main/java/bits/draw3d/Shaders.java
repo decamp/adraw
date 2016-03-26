@@ -34,7 +34,7 @@ public class Shaders {
         GLES30.glShaderSource( id, source );
         GLES30.glCompileShader( id );
 
-        int[] arr = new int[0];
+        int[] arr = new int[1];
         GLES30.glGetShaderiv( id, GL_COMPILE_STATUS, arr, 0 );
         if( arr[0] == 0 ) {
             String msg = GLES30.glGetShaderInfoLog( id );
