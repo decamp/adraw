@@ -17,7 +17,6 @@ configure( getAllprojects() ) { project ->
     apply plugin: 'com.android.library'
     apply plugin: 'com.github.dcendents.android-maven'
 
-    version = '0.0.1'
     group = 'com.github.decamp'
     buildDir = "$projectDir/build"
 
@@ -31,7 +30,7 @@ configure( getAllprojects() ) { project ->
         }
 
         defaultConfig {
-            versionCode 1
+            versionCode 2
             versionName '0.0.2'
             minSdkVersion 19
             targetSdkVersion 23
