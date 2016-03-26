@@ -207,8 +207,8 @@ public final class Mat {
     }
 
     /**
-     * @param mat    Input matrix
-     * @param out    Array to hold inverted matrix on return.
+     * @param mat Input matrix
+     * @param out Output matrix
      * @return true if matrix determinant is not near zero and accurate invert was found.
      */
     public static boolean invert( Mat3 mat, Mat3 out ) {
@@ -356,14 +356,14 @@ public final class Mat {
     }
 
     /**
-     * Multiplies an arbitrary matrix with a getRotate4 matrix.
+     * Multiplies a matrix by an axis rotation.
      *
      * @param mat     Input matrix.
-     * @param radians Degree of getRotate4.
-     * @param x       X-Coord of getRotate4 axis.
-     * @param y       Y-Coord of getRotate4 axis.
-     * @param z       Z-Coord of getRotate4 axis.
-     * @param out     Length-16 array to hold output on return.
+     * @param radians Degree of rotation
+     * @param x       X-Coord of rotation axis.
+     * @param y       Y-Coord of rotation axis.
+     * @param z       Z-Coord of rotation axis.
+     * @param out     Output matrix
      */
     public static void rotate( Mat3 mat, float radians, float x, float y, float z, Mat3 out ) {
         final float c = (float)Math.cos( radians );
@@ -404,12 +404,12 @@ public final class Mat {
     }
 
     /**
-     * Multiplies a getRotate4 matrix with an arbitrary matrix.
+     * Multiplies an axis rotation by a matrix.
      *
-     * @param radians Degree of getRotate4.
-     * @param x       X-Coord of getRotate4 axis.
-     * @param y       Y-Coord of getRotate4 axis.
-     * @param z       Z-Coord of getRotate4 axis.
+     * @param radians Degree of rotation.
+     * @param x       X-Coord of rotation axis.
+     * @param y       Y-Coord of rotation axis.
+     * @param z       Z-Coord of rotation axis.
      * @param mat     Input matrix.
      * @param out     Length-16 array to hold output on return.
      */
@@ -451,10 +451,10 @@ public final class Mat {
     }
 
     /**
-     * Removes any getTranslation/scaling3/skew or other non-rotation3
+     * Removes any translation/scaling/skew or other non-rotation
      * transformations from a matrix.
      *
-     * @param mat 3x3 homography matrix to turn into strict rotation3 matrix.
+     * @param mat [Input/Output] Matrix to turn into pure rotation matrix.
      */
     public static void normalizeRotationMatrix( Mat3 mat ) {
         float d;
@@ -526,7 +526,7 @@ public final class Mat {
     }
 
     /**
-     * Computes spherical interpolation on two rotation matrices.
+     * Computes spherical interpolation between two rotations.
      *
      * @see bits.math3d.Quat#slerp
      *
@@ -751,9 +751,9 @@ public final class Mat {
     /**
      * Multiplies two matrices.
      *
-     * @param a   Size-4 matrix.
-     * @param b   Size-4 matrix.
-     * @param out Size-4 matrix. On return, holds <tt>a * b</tt>. May be same array as <tt>a</tt> or <tt>b</tt>.
+     * @param a   Matrix a
+     * @param b   Matrix b
+     * @param out Receives {@code a * b}. May be same object as {@code a} or {@code b}.
      */
     public static void mult( Mat4 a, Mat4 b, Mat4 out ) {
         // I tested many configurations for multiplication.
@@ -811,9 +811,9 @@ public final class Mat {
     /**
      * Multiplies two matrices.
      *
-     * @param a   Size-4 matrix.
-     * @param b   Size-3 matrix.
-     * @param out Size-4 matrix. On return, holds <tt>a * b</tt>. May be same array as <tt>a</tt> or <tt>b</tt>.
+     * @param a   Matrix a
+     * @param b   Matrix b
+     * @param out Receives {@code a * b}. May be same object as {@code a} or {@code b}.
      */
     public static void mult( Mat4 a, Mat3 b, Mat4 out ) {
         float a00 = a.m00;
@@ -859,9 +859,9 @@ public final class Mat {
     /**
      * Multiplies two matrices.
      *
-     * @param a   Size-4 matrix.
-     * @param b   Size-4 matrix.
-     * @param out Size-4 matrix. On return, holds <tt>a * b</tt>. May be same array as <tt>a</tt> or <tt>b</tt>.
+     * @param a   Matrix a
+     * @param b   Matrix b
+     * @param out Receives {@code a * b}. May be same object as {@code a} or {@code b}.
      */
     public static void mult( Mat3 a, Mat4 b, Mat4 out ) {
         float a00 = a.m00;
@@ -952,7 +952,7 @@ public final class Mat {
 
     /**
      * @param mat Input matrix
-     * @return determinent of matrix
+     * @return determinant of matrix
      */
     public static float det( Mat4 mat ) {
         float s0 = ( mat.m00 * mat.m11 - mat.m10 * mat.m01 ) * ( mat.m22 * mat.m33 - mat.m32 * mat.m23 );
@@ -966,7 +966,7 @@ public final class Mat {
 
     /**
      * @param mat Input matrix
-     * @param out Array to hold inverted matrix on return.
+     * @param out Output matrix
      * @return true if matrix determinant is not near zero and accurate invert was found.
      */
     public static boolean invert( Mat4 mat, Mat4 out ) {
@@ -1078,13 +1078,13 @@ public final class Mat {
     }
 
     /**
-     * Computes a getRotate4 matrix.
+     * Converts axis rotation into matrix rotation.
      *
-     * @param radians Degree of getRotate4.
-     * @param x       X-Coord of getRotate4 axis.
-     * @param y       Y-Coord of getRotate4 axis.
-     * @param z       Z-Coord of getRotate4 axis.
-     * @param out     Length-16 array to hold output on return.
+     * @param radians Degree of rotation
+     * @param x       X-Coord of rotation axis
+     * @param y       Y-Coord of rotation axis
+     * @param z       Z-Coord of rotation axis
+     * @param out     Output matrix
      */
     public static void getRotation( float radians, float x, float y, float z, Mat4 out ) {
         float c = (float)Math.cos( radians );
@@ -1116,14 +1116,14 @@ public final class Mat {
     }
 
     /**
-     * Multiplies an arbitrary matrix with a getRotate4 matrix.
+     * Multiplies a matrix by an axis rotation.
      *
-     * @param mat     Input matrix.
-     * @param radians Degree of getRotate4.
-     * @param x       X-Coord of getRotate4 axis.
-     * @param y       Y-Coord of getRotate4 axis.
-     * @param z       Z-Coord of getRotate4 axis.
-     * @param out     Length-16 array to hold output on return.
+     * @param mat     Input matrix
+     * @param radians Degree of rotation
+     * @param x       X-Coord of rotation axis
+     * @param y       Y-Coord of rotation axis
+     * @param z       Z-Coord of rotation axis
+     * @param out     Output matrix
      */
     public static void rotate( Mat4 mat, float radians, float x, float y, float z, Mat4 out ) {
         final float c = (float)Math.cos( radians );
@@ -1178,14 +1178,14 @@ public final class Mat {
     }
 
     /**
-     * Multiplies a getRotate4 matrix with an arbitrary matrix.
+     * Multiplies an axis rotation by a matrix.
      *
-     * @param radians Degree of getRotate4.
-     * @param x       X-Coord of getRotate4 axis.
-     * @param y       Y-Coord of getRotate4 axis.
-     * @param z       Z-Coord of getRotate4 axis.
+     * @param radians Degree of rotation.
+     * @param x       X-Coord of rotation axis.
+     * @param y       Y-Coord of rotation axis.
+     * @param z       Z-Coord of rotation axis.
      * @param mat     Input matrix.
-     * @param out     Length-16 array to hold output on return.
+     * @param out     Output matirx.
      */
     public static void preRotate( float radians, float x, float y, float z, Mat4 mat, Mat4 out ) {
         float c = (float)Math.cos( radians );
@@ -1613,10 +1613,10 @@ public final class Mat {
     }
 
     /**
-     * Removes any getTranslate4/getScale4/skew or other non-getRotate4
+     * Removes any translate/scale/skew or other non-getRotate4
      * transformations from a matrix.
      *
-     * @param mat 4x4 homography matrix to turn into strict getRotate4 matrix.
+     * @param mat [Input/Output] Matrix to update
      */
     public static void normalizeRotationMatrix( Mat4 mat ) {
         float d;
@@ -1698,12 +1698,12 @@ public final class Mat {
     }
 
     /**
-     * This method will adjust a getRotate4 matrix so that one of the basis vectors will
-     * be parallel to an axis.
+     * This method will rotate a rotation matrix so that one of the basis vectors will
+     * be parallel to a chosen coordinate axis.
      *
-     * @param mat   Input getRotate4 matrix.
-     * @param basis Basis vector to align to axis. <code>0 == x-basis, 1 == y-basis, 2 == z-basis</code>.
-     * @param out   Holds modified getRotate4 matrix on output.
+     * @param mat   Input rotation matrix.
+     * @param basis Basis vector to align to axis. {@code 0 == x-basis, 1 == y-basis, 2 == z-basis}.
+     * @param out   Output matrix
      */
     public static void alignBasisVectorToAxis( Mat4 mat, int basis, Mat4 out ) {
         Vec3 x;
@@ -1755,16 +1755,16 @@ public final class Mat {
     }
 
     /**
-     * Makes the smallest angular adjustment possible to a vector such that
+     * Applies the smallest rotation possible to a vector such that
      * the resulting vector will lie inside the closed surface of a cone.
-     * In other words, after calling <code>clampToCone3</code>,
-     * <code>ang3(vec, coneAxis) <= coneRads</code>.
+     * In other words, after calling {@code clampToCone},
+     * {@code ang(vec, coneAxis) <= coneRads}.
      *
      * @param vec       Vector to clamp
      * @param coneAxis  Axis of cone
      * @param coneRads  Angle between axis and surface of cone.
-     * @param outVec    Vector with smallest possible angular distance from <code>vec</code> that lies inside cone.  May be <code>null</code>.
-     * @param outMat    Rotation matrix used to rotate4 vector onto cone.  May be <code>null</code>
+     * @param outVec    Vector with smallest possible angular distance from {@code vec} that lies inside cone. May be {@code null}.
+     * @param outMat    Rotation matrix used to rotate vector onto cone.  May be {@code null}.
      * @return true if any adjustment made, false if output is identical to input
      */
     public static boolean clampToCone( Vec3 vec, Vec3 coneAxis, float coneRads, Vec3 outVec, Mat4 outMat ) {
@@ -1844,7 +1844,7 @@ public final class Mat {
      *
      * @param a   Length-16 array. Holds matrix in column-major ordering.
      * @param b   Length-16 array. Holds matrix in column-major ordering.
-     * @param out Length-16 array. On return, holds <tt>a * b</tt>. May be same array as <tt>a</tt> or <tt>b</tt>.
+     * @param out Length-16 array. On return, holds {@code a * b}. May be same object as either input.
      */
     public static void mult4( double[] a, double[] b, double[] out ) {
         // I tested many configurations for multiplication.
@@ -1959,8 +1959,8 @@ public final class Mat {
     }
 
     /**
-     * @param mat Input matrix
-     * @param out Array to hold inverted matrix on return.
+     * @param mat Input matrix as length-16 array.
+     * @param out Output matrix as length-16 array.
      * @return true if matrix determinant is not near zero and accurate invert was found.
      */
     public static boolean invert4( double[] mat, double[] out ) {
@@ -2084,13 +2084,13 @@ public final class Mat {
     }
 
     /**
-     * Computes a getRotate4 matrix.
+     * Computes rotation matrix.
      *
-     * @param radians Degree of getRotate4.
-     * @param x       X-Coord of getRotate4 axis.
-     * @param y       Y-Coord of getRotate4 axis.
-     * @param z       Z-Coord of getRotate4 axis.
-     * @param out     Length-16 array to hold output on return.
+     * @param radians Degree of rotation
+     * @param x       X-Coord of rotation axis
+     * @param y       Y-Coord of rotation axis
+     * @param z       Z-Coord of rotation axis
+     * @param out     Length-16 array to receive output matrix in column-major order.
      */
     public static void getRotate4( double radians, double x, double y, double z, double[] out ) {
         double c     = Math.cos( radians );
@@ -2122,14 +2122,14 @@ public final class Mat {
     }
 
     /**
-     * Multiplies an arbitrary matrix with a getRotate4 matrix.
+     * Multiplies matrix by an axis rotation.
      *
-     * @param mat     Input matrix.
-     * @param radians Degree of getRotate4.
-     * @param x       X-Coord of getRotate4 axis.
-     * @param y       Y-Coord of getRotate4 axis.
-     * @param z       Z-Coord of getRotate4 axis.
-     * @param out     Length-16 array to hold output on return.
+     * @param mat     Input matrix as length-16 array in column-major order.
+     * @param radians Degree of rotation
+     * @param x       X-Coord of rotation axis
+     * @param y       Y-Coord of rotation axis
+     * @param z       Z-Coord of rotation axis
+     * @param out     Length-16 array to receive output matrix in column-major order.
      */
     public static void rotate4( double[] mat, double radians, double x, double y, double z, double[] out ) {
         double c = Math.cos( radians );
@@ -2184,14 +2184,14 @@ public final class Mat {
     }
 
     /**
-     * Multiplies a getRotate4 matrix with an arbitrary matrix.
+     * Multiplies a rotation matrix with an arbitrary matrix.
      *
-     * @param radians Degree of getRotate4.
-     * @param x       X-Coord of getRotate4 axis.
-     * @param y       Y-Coord of getRotate4 axis.
-     * @param z       Z-Coord of getRotate4 axis.
-     * @param mat     Input matrix.
-     * @param out     Length-16 array to hold output on return.
+     * @param radians Degree of rotation
+     * @param x       X-Coord of rotation axis
+     * @param y       Y-Coord of rotation axis
+     * @param z       Z-Coord of rotation axis
+     * @param mat     Input matrix
+     * @param out     Length-16 array to receive otuput in column-major order.
      */
     public static void preRotate4( double radians, double x, double y, double z, double[] mat, double[] out ) {
         double c = Math.cos( radians );
@@ -2545,10 +2545,10 @@ public final class Mat {
     }
 
     /**
-     * Removes any getTranslate4/getScale4/skew or other non-getRotate4
-     * transformations from a matrix.
+     * Removes any translaton/scale/skew or other non-rotation
+     * transformations from a matrix to turn it into a pure rotation matrix.
      *
-     * @param mat 4x4 homography matrix to turn into strict getRotate4 matrix.
+     * @param mat Length-16 homography matrix to turn into strict rotation matrix.
      */
     public static void normalizeRotationMatrix4( double[] mat ) {
         double d;
@@ -2638,9 +2638,9 @@ public final class Mat {
      * This method will adjust a getRotate4 matrix so that one of the basis vectors will
      * be parallel to an axis.
      *
-     * @param mat   Input getRotate4 matrix.
-     * @param basis Basis vector to align to axis. <code>0 == x-basis, 1 == y-basis, 2 == z-basis</code>.
-     * @param out   Holds modified getRotate4 matrix on output.
+     * @param mat   Length-16 array holding input rotation matrix.
+     * @param basis Basis vector to align to axis. {@code 0 == x-basis, 1 == y-basis, 2 == z-basis}.
+     * @param out   Holds modified rotation matrix on output.
      */
     public static void alignBasisVectorToAxis4( double[] mat, int basis, double[] out ) {
         out[12] = mat[basis*4  ];
@@ -2675,14 +2675,16 @@ public final class Mat {
     /**
      * Makes the smallest angular adjustment possible to a vector such that
      * the resulting vector will lie inside the closed surface of a cone.
-     * In other words, after calling <code>clampToCone3</code>,
-     * <code>ang3(vec, coneAxis) <= coneRads</code>.
+     * In other words, after calling {@code clampToCone4},
+     * {@code ang3(vec, coneAxis) <= coneRads}.
      *
-     * @param vec       Vector to clamp
-     * @param coneAxis  Axis of cone
-     * @param coneRads  Angle between axis and surface of cone.
-     * @param outVec    Vector with smallest possible angular distance from <code>vec</code> that lies inside cone.  May be <code>null</code>.
-     * @param outMat    Rotation matrix used to rotate4 vector onto cone.  May be <code>null</code>
+     * @param vec       Length-3 vector to clamp
+     * @param coneAxis  Length-3 cone axis
+     * @param coneRads  Angle between axis and surface of cone
+     * @param outVec    Length-3 array to receive vector with smallest possible angular distance from
+     *                  {@code vec} that lies inside cone.  May be {@code null}.
+     * @param outMat    Length-16 array to receive matrix used to rotate vector onto cone.
+     *                  May be {@code null}. Column-major ordered.
      * @return true if any adjustment made, false if output is identical to input
      */
     public static boolean clampToCone4( double[] vec,
