@@ -6,7 +6,7 @@ uniform mat4 PROJ_VIEW_MAT;
 layout( std140 ) uniform FOG {
 	vec4 COLOR;
 	vec4 PARAMS; // (density, startDist)
-} FOG;
+} fog;
 
 
 layout( location = 0 ) in vec4 inVert;
@@ -18,9 +18,9 @@ smooth out vec4 tex0;
 
 vec4 applyFog( vec4 eyeVert, vec4 color ) {
 	float fogCoord = length( eyeVert.xyz ) / eyeVert.w;
-	float fogFactor = exp( -FOG.PARAMS.x * ( fogCoord - FOG.PARAMS.y ) );
+	float fogFactor = exp( -fog.PARAMS.x * ( fogCoord - fog.PARAMS.y ) );
 	fogFactor = clamp( fogFactor, 0.0, 1.0 );
-	return mix( FOG.COLOR, color, fogFactor );
+	return mix( fog.COLOR, color, fogFactor );
 }
 
 void main() {
