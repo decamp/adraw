@@ -7,6 +7,7 @@
 package bits.math3d;
 
 import java.nio.ByteBuffer;
+import java.nio.FloatBuffer;
 
 import static bits.math3d.Tol.*;
 
@@ -37,9 +38,21 @@ public final class Vec {
     }
 
 
+    public static void put( Vec2 v, FloatBuffer out ) {
+        out.put( v.x );
+        out.put( v.y );
+    }
+
+
     public static void put( ByteBuffer b, Vec2 v ) {
         v.x = b.getFloat();
         v.y = b.getFloat();
+    }
+
+
+    public static void put( FloatBuffer b, Vec2 v ) {
+        v.x = b.get();
+        v.y = b.get();
     }
 
 
@@ -378,6 +391,20 @@ public final class Vec {
         v.x = b.getFloat();
         v.y = b.getFloat();
         v.z = b.getFloat();
+    }
+
+    
+    public static void put( Vec3 v, FloatBuffer out ) {
+        out.put( v.x );
+        out.put( v.y );
+        out.put( v.z );
+    }
+
+
+    public static void put( FloatBuffer b, Vec3 v ) {
+        v.x = b.get();
+        v.y = b.get();
+        v.z = b.get();
     }
 
 
@@ -928,6 +955,22 @@ public final class Vec {
         v.y = b.getFloat();
         v.z = b.getFloat();
         v.w = b.getFloat();
+    }
+
+    
+    public static void put( Vec4 v, FloatBuffer out ) {
+        out.put( v.x );
+        out.put( v.y );
+        out.put( v.z );
+        out.put( v.w );
+    }
+
+
+    public static void put( FloatBuffer b, Vec4 v ) {
+        v.x = b.get();
+        v.y = b.get();
+        v.z = b.get();
+        v.w = b.get();
     }
 
 

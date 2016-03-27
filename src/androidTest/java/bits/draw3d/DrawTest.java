@@ -36,7 +36,7 @@ public class DrawTest {
 
     @Before
     public void setUp() throws Exception {
-        TEST_RES = InstrumentationRegistry.getTargetContext().getResources();
+        TEST_RES = InstrumentationRegistry.getContext().getResources();
     }
 
     @Test

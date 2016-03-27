@@ -57,12 +57,12 @@ configure( getAllprojects() ) { project ->
 
     }
 
-    task sourceJar( type: Jar ) {
+    task sourcesJar( type: Jar ) {
         from android.sourceSets.main.java.srcDirs
         classifier = 'sources'
     }
 
     artifacts {
-        archives sourceJar
+        archives sourcesJar
     }
 }

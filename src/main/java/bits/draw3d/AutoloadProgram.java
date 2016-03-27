@@ -80,6 +80,20 @@ public class AutoloadProgram extends Program {
         return mBlocks;
     }
 
+    /**
+     * Not available until initialized. Returns uniform with specified name.
+     */
+    public Uniform uniform( String name ) {
+        for( Uniform u: mUniforms ) {
+            if( name.equals( u.mName ) ) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+
+
 
     public void addBindTask( DrawTask task ) {
         if( mOnBind == null ) {
