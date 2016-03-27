@@ -57,42 +57,42 @@ public class Uniforms {
 
 
     public static DrawTask loaderFor( ProgramResource res ) {
-        String name = res.mName.intern();
-        if( name == PROJ_MAT ) {
+        switch( res.mName ) {
+        case PROJ_MAT:
             return new ProjMat( res.mLocation );
-        } else if( name == INV_PROJ_MAT ) {
+        case INV_PROJ_MAT:
             return new InvProjMat( res.mLocation );
-        } else if( name == VIEW_MAT ) {
+        case VIEW_MAT:
             return new ViewMat( res.mLocation );
-        } else if( name == INV_VIEW_MAT ) {
+        case INV_VIEW_MAT:
             return new InvViewMat( res.mLocation );
-        } else if( name == PROJ_VIEW_MAT ) {
+        case PROJ_VIEW_MAT:
             return new ProjViewMat( res.mLocation );
-        } else if( name == INV_PROJ_VIEW_MAT ) {
+        case INV_PROJ_VIEW_MAT:
             return new InvProjViewMat( res.mLocation );
-        } else if( name == NORM_MAT ) {
+        case NORM_MAT:
             return new NormMat( res.mLocation );
-        } else if( name == INV_NORM_MAT ) {
+        case INV_NORM_MAT:
             return new InvNormMat( res.mLocation );
-        } else if( name == VIEWPORT ) {
+        case VIEWPORT:
             return new Viewport( res.mLocation );
-        } else if( name == VIEWPORT_MAT ) {
+        case VIEWPORT_MAT:
             return new ViewportMat( res.mLocation );
-        } else if( name == INV_VIEWPORT_MAT ) {
+        case INV_VIEWPORT_MAT:
             return new InvViewportMat( res.mLocation );
-        } else if( name == COLOR_MAT ) {
+        case COLOR_MAT:
             return new ColorMat( res.mLocation );
-        } else if( name == INV_COLOR_MAT ) {
+        case INV_COLOR_MAT:
             return new InvColorMat( res.mLocation );
-        } else if( name == TEX_MAT ) {
+        case TEX_MAT:
             return new TexMat( res.mLocation );
-        } else if( name == INV_TEX_MAT ) {
+        case INV_TEX_MAT:
             return new InvTexMat( res.mLocation );
-        } else if( name == LINE_WIDTH ) {
+        case LINE_WIDTH:
             return new LineWidth( res.mLocation );
+        default:
+            return null;
         }
-
-        return null;
     }
 
 

@@ -31,7 +31,7 @@ configure( getAllprojects() ) { project ->
 
         defaultConfig {
             versionCode 2
-            versionName '0.0.2'
+            versionName 'v0.0.3'
             minSdkVersion 19
             targetSdkVersion 23
 
