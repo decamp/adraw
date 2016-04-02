@@ -6,8 +6,8 @@
 package bits.draw3d.camera;
 
 import bits.draw3d.Rect;
-import bits.math3d.Mat;
-import bits.math3d.Mat4;
+import bits.vec.Mat;
+import bits.vec.Mat4;
 
 public class BasicViewportFunc implements ViewportFunc {
     @Override

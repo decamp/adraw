@@ -6,17 +6,17 @@
 
 package bits.draw3d.actor;
 
-import bits.math3d.*;
+import bits.vec.*;
 
 
 /**
  * @author decamp
  */
-public class ActorCoords {
+public final class ActorCoords {
 
-    private static final Mat3 AXIS_MAT = new Mat3( 0, 0, -1,
-                                                   -1, 0, 0,
-                                                   0, 1, 0 );
+    private static final Mat3 AXIS_MAT = new Mat3(  0,  0, -1,
+                                                   -1,  0,  0,
+                                                    0,  1,  0 );
 
     private static final Mat3 INV_AXIS_MAT = new Mat3();
 
@@ -63,11 +63,13 @@ public class ActorCoords {
         out.z = 0;
     }
 
+
     public static void backwardAxis( Vec3 out ) {
         out.x = -1;
         out.y =  0;
         out.z =  0;
     }
+
 
     public static void leftAxis( Vec3 out ) {
         out.x = 0;
@@ -75,11 +77,13 @@ public class ActorCoords {
         out.z = 0;
     }
 
+
     public static void rightAxis( Vec3 out ) {
         out.x = 0;
         out.y = -1;
         out.z = 0;
     }
+
 
     public static void upAxis( Vec3 out ) {
         out.x = 0;
@@ -87,35 +91,44 @@ public class ActorCoords {
         out.z = 1;
     }
 
+
     public static void downAxis( Vec3 out ) {
         out.x = 0;
         out.y = 0;
         out.z = -1;
     }
-    
-    public static Vec3 newForwardAxis() {
+
+
+    public static Vec3 createForwardAxis() {
         return new Vec3( 1, 0, 0 );
     }
     
-    public static Vec3 newBackwardAxis() {
+
+    public static Vec3 createBackwardAxis() {
         return new Vec3( -1, 0, 0 );
     }
-    
-    public static Vec3 newLeftAxis() {
+
+
+    public static Vec3 createLeftAxis() {
         return new Vec3( 0, 1, 0 );
     }
-    
-    public static Vec3 newRightAxis() {
+
+
+    public static Vec3 createRightAxis() {
         return new Vec3( 0, -1, 0 );
     }
-    
-    public static Vec3 newUpAxis() {
+
+
+    public static Vec3 createUpAxis() {
         return new Vec3( 0, 0, 1 );
     }
-    
-    public static Vec3 newDownAxis() {
+
+
+    public static Vec3 createDownAxis() {
         return new Vec3( 0, 0, -1 );
     }
 
+
+    private ActorCoords() {}
 
 }

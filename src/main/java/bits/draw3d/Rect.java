@@ -11,12 +11,12 @@ import java.io.Serializable;
 
 /**
  * Rect is a utility class based by the Pygame Rect module.
- * <p/>
+ * <p>
  * Rect objects are immutable. Boxes always define positive spaces and will
  * never return a negative width or height.  Attempting to define a Rect
  * with a negative dimension will result in a Rect with positive dimensions
  * that covers the same region of space.
- * <p/>
+ * <p>
  * Both the horizontal and vertical ranges of a Rect are computed as
  * half-open sets. That is, the left and top edges are on the Rect
  * interior, whereas the right and bottom edges are on the Rect exterior.
@@ -366,10 +366,8 @@ public class Rect implements Serializable {
     }
 
     /**
-     * Computes the smallest rect which contains completely this Rect and
-     * the specified Rect.
-     *
-     * @return Rect representing union of {@code this} and {@code rect}.
+     * Sets this rect equal to the smallest rect that contains
+     * completely this rect and provided rect.
      */
     public void union( Rect rect ) {
         if( rect.x0 < x0 ) x0 = rect.x0;

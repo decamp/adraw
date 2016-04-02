@@ -139,7 +139,7 @@ public class DrawUtil {
      *                   {@code optOut.remaining() >= image.getWidth() * image.getHeight() *  4},
      *                   otherwise a new directly-allocated ByteBuffer will be created with
      *                   native byte order.
-     * @param optFormat  [Optional][Out] if not null and length >= 2, will receive output format: <br>
+     * @param optFormat  [Optional][Out] if not null and {@code length >= 2}, will receive output format: <br>
      *                   optFormat[0] = internal format <br>
      *                   optFormat[1] = format <br>
 

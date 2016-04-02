@@ -61,6 +61,7 @@ public class AutoloadProgram extends Program {
 
     /**
      * Not available until initialized.
+     * @return direct reference to list of all attributes.
      */
     public List<ProgramResource> attribsRef() {
         return mAttribs;
@@ -68,6 +69,7 @@ public class AutoloadProgram extends Program {
 
     /**
      * Not available until initialized.
+     * @return direct reference to list of all uniforms.
      */
     public List<Uniform> uniformsRef() {
         return mUniforms;
@@ -75,6 +77,7 @@ public class AutoloadProgram extends Program {
 
     /**
      * Not available until initialized.
+     * @return direct reference to list of all uniform blocks.
      */
     public List<UniformBlock> uniformBlocksRef() {
         return mBlocks;
@@ -82,6 +85,7 @@ public class AutoloadProgram extends Program {
 
     /**
      * Not available until initialized. Returns uniform with specified name.
+     * @return uniform with given name, or {@code null} if not exists.
      */
     public Uniform uniform( String name ) {
         for( Uniform u: mUniforms ) {

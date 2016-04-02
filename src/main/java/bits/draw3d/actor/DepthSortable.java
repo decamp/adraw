@@ -6,8 +6,8 @@
 
 package bits.draw3d.actor;
 
-import bits.math3d.Mat4;
-import bits.math3d.Vec3;
+import bits.vec.Mat4;
+import bits.vec.Vec3;
 
 import java.util.Comparator;
 
@@ -20,7 +20,7 @@ public interface DepthSortable {
     /**
      * @return direct reference to vec that holds object position in Normalized Device Coordinates.
      */
-    public Vec3 normPosRef();
+    Vec3 normPosRef();
 
     /**
      * Updates the Normalize Device Coordinates of an object.
@@ -28,15 +28,15 @@ public interface DepthSortable {
      * @param projViewMat Matrix that defines transformation from
      *                    model-coordinates to normalized-device-coordinates.
      */
-    public void updateNormPos( Mat4 projViewMat );
+    void updateNormPos( Mat4 projViewMat );
     
     /**
      * @return The depth of the object in normalized device coordinates.
      */
-    public float normDepth();
+    float normDepth();
 
 
-    public static final Comparator<DepthSortable> BACK_TO_FRONT_ORDER = new Comparator<DepthSortable>() {
+    Comparator<DepthSortable> BACK_TO_FRONT_ORDER = new Comparator<DepthSortable>() {
         public int compare( DepthSortable a, DepthSortable b ) {
             float aa = a.normDepth();
             float bb = b.normDepth();
@@ -46,7 +46,7 @@ public interface DepthSortable {
     };
 
 
-    public static final Comparator<DepthSortable> FRONT_TO_BACK_ORDER = new Comparator<DepthSortable>() {
+    Comparator<DepthSortable> FRONT_TO_BACK_ORDER = new Comparator<DepthSortable>() {
         public int compare( DepthSortable a, DepthSortable b ) {
             float aa = a.normDepth();
             float bb = b.normDepth();

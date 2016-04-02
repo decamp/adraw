@@ -14,13 +14,15 @@ package bits.draw3d.text;
  */
 public class CharSet implements CharSequence {
 
-    public static final CharSet DEFAULT = new CharSet( "abcdefghijklmnopqrstuvwxyz" +
-                                                       "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-                                                       "0123456789" +
-                                                       "`~!@#$%^&*()-_=+" +
-                                                       "[]{}\\|" +
-                                                       ";:'\"" +
-                                                       ",<.>/? " );
+    public static final CharSet DEFAULT = new CharSet(
+            "abcdefghijklmnopqrstuvwxyz" +
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+            "0123456789" +
+            "`~!@#$%^&*()-_=+" +
+            "[]{}\\|" +
+            ";:'\"" +
+            ",<.>/? "
+    );
 
     private final CharSequence mChars;
     private final char         mMin;

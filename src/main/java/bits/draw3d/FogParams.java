@@ -6,8 +6,8 @@
 
 package bits.draw3d;
 
-import bits.math3d.Vec;
-import bits.math3d.Vec4;
+import bits.vec.Vec;
+import bits.vec.Vec4;
 
 
 /**

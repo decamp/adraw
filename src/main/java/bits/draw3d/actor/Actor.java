@@ -6,7 +6,7 @@
 
 package bits.draw3d.actor;
 
-import bits.math3d.*;
+import bits.vec.*;
 
 
 /**
@@ -89,8 +89,8 @@ public class Actor extends Trans3 implements DepthSortable, TransObject {
     }
     
     /**
-     * Computes full transform for this object: <br/>
-     * translation * rotation * scaling. <br/>
+     * Computes full transform for this object: <br>
+     * translation * rotation * scaling. <br>
      * This method is computes the transform directly and efficiently,
      * using only 9 scalar multiplications.
      *  

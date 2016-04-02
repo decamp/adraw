@@ -2,7 +2,7 @@ package bits.draw3d;
 
 import android.opengl.GLSurfaceView;
 import bits.draw3d.text.FontManager;
-import bits.math3d.*;
+import bits.vec.*;
 
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;

@@ -253,6 +253,8 @@ public class FontUtil {
      * implied to be 0, so on return, the output array holds only the right edge
      * of each glyph.
      *
+     * @param paint       Paint object holding typeface information
+     * @param seq         Sample text
      * @param off         Offset into sequence where input begins.
      * @param len         Length of input to use.
      * @param out         Holds the right position of each character in the input

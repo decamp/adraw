@@ -7,7 +7,7 @@
 package bits.draw3d;
 
 import android.opengl.GLES30;
-import bits.math3d.*;
+import bits.vec.*;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;

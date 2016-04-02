@@ -8,9 +8,9 @@ package bits.draw3d.text;
 
 interface GlyphMap {
     
-    public Glyph get( char c );
+    Glyph get( char c );
     
-    public Glyph put(
+    Glyph put(
             char c,
             float advance,
             int x0,
@@ -28,13 +28,13 @@ interface GlyphMap {
      * {@code write()} commands, {@code optimize()}
      * must be called to prepare the table for use.
      */
-    public void optimize();
+    void optimize();
     
     /**
      * @return glyph to use for unrecognized characters.
      */
-    public Glyph unknownGlyph();
+    Glyph unknownGlyph();
     
-    public CharSequence chars();
-    public char getChar( int index );
+    CharSequence chars();
+    char getChar( int index );
 }

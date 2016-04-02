@@ -4,8 +4,8 @@
  * http://opensource.org/licenses/BSD-2-Clause
  */
 
-package bits.math3d;
-
+package bits.draw3d.util;
+import bits.vec.Vec4;
 import java.nio.ByteOrder;
 
 

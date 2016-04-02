@@ -9,9 +9,9 @@ package bits.draw3d.shaders;
 import bits.draw3d.*;
 import bits.draw3d.model.DrawTri;
 import bits.draw3d.model.DrawVert;
-import bits.math3d.ValueTypes;
-import bits.math3d.Vec;
-import bits.math3d.Vec4;
+import bits.draw3d.util.ValueTypes;
+import bits.vec.Vec;
+import bits.vec.Vec4;
 
 import java.nio.ByteBuffer;
 

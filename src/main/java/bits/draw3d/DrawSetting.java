@@ -7,8 +7,8 @@
 package bits.draw3d;
 
 import android.opengl.GLES30;
-import bits.math3d.Vec2;
-import bits.math3d.Vec4;
+import bits.vec.Vec2;
+import bits.vec.Vec4;
 
 import java.util.Arrays;
 

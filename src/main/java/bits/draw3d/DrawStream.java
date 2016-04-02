@@ -10,8 +10,8 @@ import android.opengl.GLES30;
 import bits.draw3d.model.DrawVert;
 import bits.draw3d.shaders.BasicShaderConfig;
 import bits.draw3d.shaders.BasicShaders;
-import bits.math3d.*;
-import bits.util.AbstractRefable;
+import bits.vec.*;
+import bits.util.ref.*;
 
 import java.nio.ByteBuffer;
 import java.util.HashMap;

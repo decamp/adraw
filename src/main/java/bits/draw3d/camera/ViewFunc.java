@@ -7,9 +7,9 @@
 package bits.draw3d.camera;
 
 import bits.draw3d.actor.Actor;
-import bits.math3d.Mat4;
+import bits.vec.Mat4;
 
 
 public interface ViewFunc {
-    public void computeViewMat( Actor camera, Mat4 out );
+    void computeViewMat( Actor camera, Mat4 out );
 }

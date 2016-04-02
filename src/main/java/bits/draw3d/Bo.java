@@ -82,9 +82,10 @@ public class Bo extends DrawUnitAdapter implements DrawNode {
 
     /**
      * Fills ByteBuffer with provided data.
-     * BufferObject may not be updated until subsequent call to <code>pushDraw(gl)</code>.
+     * BufferObject may not be updated until subsequent call to {@code pushDraw(gl)}.
      *
      * @param buf Directly-allocated ByteBuffer containing buffer data.
+     * @param offset Offset into destination buffer.
      */
     public void bufferSub( ByteBuffer buf, int offset ) {
         mCopyBytes  = buf.duplicate();
@@ -109,10 +110,14 @@ public class Bo extends DrawUnitAdapter implements DrawNode {
      * MUST be called while pushed. Retrieves ByteBuffer
      * that can be used to access data in Buffer Object.
      * <p>
-     * <code>unmap(gl)</code> MUST be called after user
+     * {@link #unmap} MUST be called after user
      * done with ByteBuffer.
      *
-     * @param access  Specificies access to buffer. MUST be GL_READ_ONLY, GL_WRITE_ONLY, or GL_READ_WRITE.
+     * @param d DrawEnv
+     * @param off Offset into buffer
+     * @param len Length of buffer
+     * @param access Specifies access to buffer. MUST be GL_READ_ONLY, GL_WRITE_ONLY, or GL_READ_WRITE.
+     *
      * @return ByteBuffer view of Buffer Object.
      */
     public Buffer map( DrawEnv d, int off, int len, int access ) {

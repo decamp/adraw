@@ -8,7 +8,7 @@ package bits.draw3d.camera;
 
 import bits.draw3d.*;
 import bits.draw3d.actor.Actor;
-import bits.math3d.*;
+import bits.vec.*;
 
 
 /**
@@ -264,7 +264,6 @@ public class CameraNode implements DrawNode, ReshapeListener {
 
 
 
-
     public void init( DrawEnv env ) {}
 
 
@@ -290,7 +289,6 @@ public class CameraNode implements DrawNode, ReshapeListener {
         e.mView.pop();
         e.mProj.pop();
     }
-
 
 
 

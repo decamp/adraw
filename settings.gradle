@@ -1,2 +1,1 @@
-//include ':adraw'
-//project( ':adraw' ).projectDir = new File( '.' )
+rootProject.name = 'adraw'

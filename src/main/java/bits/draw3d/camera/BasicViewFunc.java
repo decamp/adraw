@@ -8,7 +8,7 @@ package bits.draw3d.camera;
 
 import bits.draw3d.actor.Actor;
 import bits.draw3d.actor.ActorCoords;
-import bits.math3d.*;
+import bits.vec.*;
 
 
 public class BasicViewFunc implements ViewFunc {

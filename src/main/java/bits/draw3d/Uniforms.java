@@ -7,8 +7,8 @@
 package bits.draw3d;
 
 import android.opengl.GLES30;
-import bits.math3d.Mat;
-import bits.math3d.Mat4;
+import bits.vec.Mat;
+import bits.vec.Mat4;
 
 import java.nio.FloatBuffer;
 import java.util.*;

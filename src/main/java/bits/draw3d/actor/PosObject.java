@@ -6,7 +6,7 @@
 
 package bits.draw3d.actor;
 
-import bits.math3d.Vec3;
+import bits.vec.Vec3;
 
 
 /**

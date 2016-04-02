@@ -71,7 +71,7 @@ public interface Texture extends DrawUnit, ReshapeListener {
     int height();
     
     /**
-     * @return true if this Texture has a defined size; <tt>width() >= 0 && height() >= 0</tt>.
+     * @return true if this Texture has a defined size; {@code width() >= 0 && height() >= 0}.
      */
     boolean hasSize();
     
@@ -104,7 +104,7 @@ public interface Texture extends DrawUnit, ReshapeListener {
     
     /**
      * @param key  Key of texture param 
-     * @return currently specified value of that texture param, or <tt>null</tt> if not defined.
+     * @return currently specified value of that texture param, or {@code null} if not defined.
      */
     Integer param( int key );
     

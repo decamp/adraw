@@ -7,7 +7,7 @@
 package bits.draw3d;
 
 import android.opengl.GLES30;
-import bits.util.Refable;
+import bits.util.ref.Refable;
 
 
 /**

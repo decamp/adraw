@@ -7,9 +7,8 @@
 package bits.draw3d.camera;
 
 import bits.draw3d.Rect;
-import bits.math3d.Mat4;
-
+import bits.vec.Mat4;
 
 public interface ViewportFunc {
-    public void computeViewportMat( Rect viewport, Rect tileViewport, Mat4 out );
+    void computeViewportMat( Rect viewport, Rect tileViewport, Mat4 out );
 }
