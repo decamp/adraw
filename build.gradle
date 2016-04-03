@@ -10,6 +10,8 @@ buildscript {
 
 group = 'com.github.decamp'
 buildDir = "$projectDir/build"
+version = '0.0.5'
+ext.versionCode = 5
 
 repositories {
     jcenter()
@@ -30,8 +32,8 @@ android {
     }
 
     defaultConfig {
-        versionCode 2
-        versionName '0.0.4'
+        versionCode versionCode
+        versionName version
         minSdkVersion 19
         targetSdkVersion 23
 

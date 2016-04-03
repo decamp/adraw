@@ -7,7 +7,7 @@ import android.opengl.GLSurfaceView;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.LargeTest;
 import android.support.test.runner.AndroidJUnit4;
-import bits.math3d.Vec4;
+import bits.vec.Vec4;
 import org.junit.*;
 import org.junit.runner.RunWith;
 

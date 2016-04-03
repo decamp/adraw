@@ -8,7 +8,7 @@ package bits.draw3d;
 
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import bits.draw3d.util.Streams;
+import bits.util.Streams;
 
 import java.io.*;
 
